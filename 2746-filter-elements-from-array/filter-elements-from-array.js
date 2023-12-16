@@ -4,11 +4,17 @@
  * @return {number[]}
  */
 var filter = function(arr, fn) {
-    var filteredArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        if (fn(arr[i], i)) {
-            filteredArr.push(arr[i]);
+    
+    let newArr = [];
+    
+    for(let i=0; i<arr.length; i++){
+        
+        let checkVal = fn(arr[i],i);
+        
+        if(checkVal){
+            newArr.push(arr[i]);
         }
     }
-    return filteredArr;
+
+    return newArr;
 };
