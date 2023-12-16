@@ -1,3 +1,6 @@
-var createCounter = function(n) {
-    return ()=> n++
-};
+function createCounter(start) {
+  let count = start;
+  return function() {
+    return count++;
+  }
+}
