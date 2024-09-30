@@ -7,7 +7,7 @@ public:
         int mid;
 
         while (first_element <= last_element) {
-            mid = (first_element + last_element) / 2;
+            mid = first_element + ((last_element - first_element) / 2);
 
             if (arr[mid] == Element) {
                 return mid;
