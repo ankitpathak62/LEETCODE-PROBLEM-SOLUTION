@@ -19,7 +19,8 @@ public:
 
         // second
         
-        start = 0,end = num.size()- 1;
+        
+        start = 0,  end = num.size()- 1;
 
         while (start <= end) {
             mid = start + (end - start) / 2;
