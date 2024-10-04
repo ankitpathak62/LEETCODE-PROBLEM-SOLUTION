@@ -8,7 +8,9 @@ public:
         while(start<= end){
             mid = start + (end - start)/2;
             if(nums[mid] == target){
-                return mid;
+               // return mid;
+               n = mid;
+               break;
             }
             else if(nums[mid]<target){
                 start = mid + 1 ;
