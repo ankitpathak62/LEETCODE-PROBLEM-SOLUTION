@@ -1,6 +1,8 @@
 class Solution {
 public:
     static bool isPowerOfThree(int n) {
-        return (n==1)?1:((n<=0 || n%3)?0:isPowerOfThree(n/3));
+        int e=log(INT_MAX)/log(3);
+        int N=pow(3, e);
+        return n>0 && N%n==0;
     }
 };
