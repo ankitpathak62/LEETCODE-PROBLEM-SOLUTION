@@ -1,37 +1,35 @@
 class Solution {
 public:
     int calculate(string s) {
-        long result = 0;
+        long long int sum = 0;
         int sign = 1;
-        stack<long> stk;
+        stack<pair<int,int>> st;
 
-        for (int i = 0; i < (int)s.size(); i++) {
-            char c = s[i];
-
-            if (isdigit(c)) {
-                long num = 0;
-                while (i < (int)s.size() && isdigit(s[i])) {
+        for(int i=0; i<s.size();i++){
+            if(isdigit(s[i])){
+                long long int num = 0;
+                while(i<s.size() && isdigit(s[i])){
                     num = num * 10 + (s[i] - '0');
                     i++;
                 }
                 i--;
-                result += sign * num;
-            } else if (c == '+') {
+                sum += num * sign;
                 sign = 1;
-            } else if (c == '-') {
-                sign = -1;
-            } else if (c == '(') {
-                stk.push(result);
-                stk.push(sign);
-                result = 0;
+            }
+            else if(s[i] == '('){
+                st.push({sum, sign});
+                sum = 0;
                 sign = 1;
-            } else if (c == ')') {
-                long prevSign = stk.top(); stk.pop();
-                long prevResult = stk.top(); stk.pop();
-                result = prevResult + prevSign * result;
+            }
+            else if(s[i] == ')'){
+                sum = st.top().first + (st.top().second * sum);
+                st.pop();
+
+            }
+            else if(s[i] == '-'){
+                sign = -1 * sign;
             }
         }
-
-        return (int)result;
+        return sum;
     }
 };
