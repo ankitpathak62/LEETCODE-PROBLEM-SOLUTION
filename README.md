@@ -4,10 +4,12 @@
 ## String
 |  |
 | ------- |
+| [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 ## Stack
 |  |
 | ------- |
+| [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/1081-smallest-subsequence-of-distinct-characters) |
 ## Greedy
 |  |
@@ -29,4 +31,12 @@
 |  |
 | ------- |
 | [0073-set-matrix-zeroes](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0073-set-matrix-zeroes) |
+## Math
+|  |
+| ------- |
+| [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
+## Recursion
+|  |
+| ------- |
+| [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
 <!---LeetCode Topics End-->
