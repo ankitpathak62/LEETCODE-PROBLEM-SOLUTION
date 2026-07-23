@@ -6,6 +6,7 @@
 | ------- |
 | [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
 | [1081-smallest-subsequence-of-distinct-characters](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/1081-smallest-subsequence-of-distinct-characters) |
+| [3501-maximize-active-section-with-trade-ii](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3501-maximize-active-section-with-trade-ii) |
 ## Stack
 |  |
 | ------- |
@@ -23,6 +24,7 @@
 |  |
 | ------- |
 | [0073-set-matrix-zeroes](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0073-set-matrix-zeroes) |
+| [3501-maximize-active-section-with-trade-ii](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3501-maximize-active-section-with-trade-ii) |
 | [3513-number-of-unique-xor-triplets-i](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3513-number-of-unique-xor-triplets-i) |
 ## Hash Table
 |  |
@@ -45,4 +47,12 @@
 |  |
 | ------- |
 | [3513-number-of-unique-xor-triplets-i](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3513-number-of-unique-xor-triplets-i) |
+## Binary Search
+|  |
+| ------- |
+| [3501-maximize-active-section-with-trade-ii](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3501-maximize-active-section-with-trade-ii) |
+## Segment Tree
+|  |
+| ------- |
+| [3501-maximize-active-section-with-trade-ii](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3501-maximize-active-section-with-trade-ii) |
 <!---LeetCode Topics End-->
