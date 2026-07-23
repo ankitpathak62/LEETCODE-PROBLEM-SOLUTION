@@ -23,6 +23,7 @@
 |  |
 | ------- |
 | [0073-set-matrix-zeroes](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0073-set-matrix-zeroes) |
+| [3513-number-of-unique-xor-triplets-i](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3513-number-of-unique-xor-triplets-i) |
 ## Hash Table
 |  |
 | ------- |
@@ -35,8 +36,13 @@
 |  |
 | ------- |
 | [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
+| [3513-number-of-unique-xor-triplets-i](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3513-number-of-unique-xor-triplets-i) |
 ## Recursion
 |  |
 | ------- |
 | [0224-basic-calculator](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/0224-basic-calculator) |
+## Bit Manipulation
+|  |
+| ------- |
+| [3513-number-of-unique-xor-triplets-i](https://github.com/ankitpathak62/LEETCODE-PROBLEM-SOLUTION/tree/master/3513-number-of-unique-xor-triplets-i) |
 <!---LeetCode Topics End-->
