@@ -1,65 +1,58 @@
+const int K = 17, MAXN = 1e5;
+int st[K + 1][MAXN];
+
+void build(auto& array) {
+	copy(array.begin(), array.end(), st[0]);
+
+	for(int i = 1; i <= K; i++)
+	    for(int j = 0; j + (1 << i) <= array.size(); j++)
+	        st[i][j] = max(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+}
+
+int query(int L, int R) {
+	int i = bit_width(unsigned(R - L + 1)) - 1;
+	return max(st[i][L], st[i][R - (1 << i) + 1]);
+}
+
 class Solution {
 public:
-    vector<int> maxActiveSectionsAfterTrade(string s, vector<vector<int>>& queries) {
-        int n = s.size();
-        long long totalOnes = count(s.begin(), s.end(), '1');
-
-        vector<int> zst, zen, zlen;
-        for (int i = 0; i < n; ) {
-            if (s[i] == '0') {
-                int j = i;
-                while (j < n && s[j] == '0') j++;
-                zst.push_back(i);
-                zen.push_back(j - 1);
-                zlen.push_back(j - i);
-                i = j;
-            } else {
-                i++;
-            }
+    vector<int> maxActiveSectionsAfterTrade(const string& s, vector<vector<int>>& queries) {
+        int n = s.size(), active = 0;
+        vector<pair<int, int>> zero;
+        vector<int> index(n);
+        for(int i = 0; i < n; i++) {
+        	if(s[i] == '0') {
+        		if(i > 0 && s[i - 1] == '0') zero.back().second++;
+        		else zero.push_back({i, 1});
+        	}else {
+        		active++;
+        	}
+        	index[i] = int(zero.size()) - 1;
         }
-
-        int m = zst.size();
-        int p = max(0, m - 1);
-        int LOG = 1;
-        while ((1 << LOG) < max(1, p)) LOG++;
-        vector<vector<int>> sp(LOG + 1, vector<int>(max(1, p), 0));
-        for (int i = 0; i < p; i++) sp[0][i] = zlen[i] + zlen[i + 1];
-        for (int k = 1; k <= LOG; k++) {
-            for (int i = 0; i + (1 << k) <= p; i++) {
-                sp[k][i] = max(sp[k - 1][i], sp[k - 1][i + (1 << (k - 1))]);
-            }
+        if(zero.empty()) return vector<int>(queries.size(), active);
+        
+        vector<int> gains(zero.size() - 1);
+        for(int i = zero.size() - 2; i >= 0; i--) {
+        	gains[i] = zero[i].second + zero[i + 1].second;
         }
+        build(gains);
 
-        auto rangeMax = [&](int l, int r) -> int {
-            if (l > r) return 0;
-            int k = 31 - __builtin_clz(r - l + 1);
-            return max(sp[k][l], sp[k][r - (1 << k) + 1]);
-        };
+        vector<int> res(queries.size(), active);
+        for(int i = 0, sz = queries.size(); i < queries.size(); i++) {
+        	int L = queries[i][0], R = queries[i][1];
+        	int start = index[L] + 1, end = index[R] - (s[R] == '0');
+        	int cnt_left = index[L] == -1 ? -1 : (zero[index[L]].second - (L - zero[index[L]].first));
+    		int cnt_right = index[R] == -1 ? -1 : (R - zero[index[R]].first + 1);
 
-        vector<int> ans;
-        ans.reserve(queries.size());
-
-        for (auto& q : queries) {
-            int l = q[0], r = q[1];
-
-            int a = lower_bound(zen.begin(), zen.end(), l) - zen.begin();
-            int b = int(upper_bound(zst.begin(), zst.end(), r) - zst.begin()) - 1;
-
-            long long gain = 0;
-            if (a < m && b >= 0 && a < b) {
-                long long lenA = min(zen[a], r) - max(zst[a], l) + 1;
-                long long lenB = min(zen[b], r) - max(zst[b], l) + 1;
-                if (b == a + 1) {
-                    gain = lenA + lenB;
-                } else {
-                    gain = max(lenA + zlen[a + 1], (long long)zlen[b - 1] + lenB);
-                    if (a + 1 <= b - 2) gain = max(gain, (long long)rangeMax(a + 1, b - 2));
-                }
-            }
-
-            ans.push_back((int)(totalOnes + gain));
+        	if(start < end)
+    			res[i] = max(res[i], active + query(start, end - 1));
+    		if(s[L] == '0' && s[R] == '0' && index[L] + 1 == index[R])
+    			res[i] = max(res[i], active + cnt_left + cnt_right);
+            if(s[L] == '0' && index[L] + 1 < index[R] + (s[R] == '1'))
+                res[i] = max(res[i], active + cnt_left + zero[index[L] + 1].second);
+            if(s[R] == '0' && index[L] < index[R] - 1)
+                res[i] = max(res[i], active + cnt_right + zero[index[R] - 1].second);
         }
-
-        return ans;
+        return res;
     }
 };
